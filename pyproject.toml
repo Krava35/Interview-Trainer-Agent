@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling>=1.24.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "interview-trainer-lab2"
+version = "0.1.0"
+description = "Lab2 LangGraph project: multi-agent interview trainer with tools and memory."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "langchain>=1.0.0",
+  "langgraph>=1.0.0",
+  "langchain-openai>=1.0.0",
+  "pydantic>=2.7",
+  "tenacity>=9.0.0",
+  "ruff>=0.6.0",
+  "radon>=6.0.1",
+  "jupyter>=1.0.0",
+  "ipykernel>=6.29.0",
+]
+
+[project.scripts]
+interview-trainer = "interview_trainer.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/interview_trainer"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
